@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generated Captions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Generated Captions for Your Images</h1>
+  </header>
+
+  <div class="container">
+    <h2>Here are your results</h2>
+    <!-- Loop through each file and caption -->
+    {% for filename, caption in files_with_captions %}
+      <div class="image-result">
+        <!-- Display uploaded image -->
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image" class="generated-image">
+        <!-- Display caption -->
+        <p class="caption">Caption: {{ caption }}</p>
+      </div>
+    {% endfor %}
+    <div class="btn-container">
+      <a href="/" class="back-btn">Try Another One</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© 2024 Image Caption Generator</p>
+  </div>
+</body>
+</html>
